@@ -1,4 +1,4 @@
-module github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4.git
+module github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4
 
 go 1.23
 
