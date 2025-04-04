@@ -1,11 +1,11 @@
 package routes
 
 import (
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/auth"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/public"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/user"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/middlewares"
 	"github.com/gin-gonic/gin"
-	"github.com/tnqbao/gau_user_service/api/auth"
-	"github.com/tnqbao/gau_user_service/api/public"
-	"github.com/tnqbao/gau_user_service/api/user"
-	"github.com/tnqbao/gau_user_service/middlewares"
 	"gorm.io/gorm"
 )
 

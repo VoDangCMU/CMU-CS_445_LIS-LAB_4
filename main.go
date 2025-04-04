@@ -4,9 +4,9 @@ package main
 import (
 	"log"
 
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/config"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/routes"
 	"github.com/joho/godotenv"
-	"github.com/tnqbao/gau_user_service/config"
-	"github.com/tnqbao/gau_user_service/routes"
 )
 
 func main() {
