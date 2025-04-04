@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/auth"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/check"
 	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/middlewares"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -24,6 +25,7 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 				authRotues.PUT("/register", auth.Register)
 				authRotues.POST("/logout", auth.Logout, middlewares.AuthMiddleware())
 			}
+			userRoutes.GET("/check-with-token", middlewares.AuthMiddleware(), check.CheckWithToken)
 		}
 	}
 	return r
