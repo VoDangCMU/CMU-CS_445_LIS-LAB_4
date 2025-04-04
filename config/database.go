@@ -14,7 +14,7 @@ func InitDB() *gorm.DB {
 	var err error
 	pg_user := "postgres"
 	pg_password := "1234567"
-	pg_host := 5432
+	pg_host := "db"
 	database_name := "lab_4"
 
 	fmt.Printf("DB connect status: %s:%s@tcp(%s:5432)/%s\n", pg_user, pg_password, pg_host, database_name)
