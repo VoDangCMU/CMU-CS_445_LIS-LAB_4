@@ -1,12 +1,12 @@
 package user
 
 import (
-	"github.com/tnqbao/gau_user_service/providers"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/providers"
 	"log"
 	"net/http"
 
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/models"
 	"github.com/gin-gonic/gin"
-	"github.com/tnqbao/gau_user_service/models"
 	"gorm.io/gorm"
 )
 

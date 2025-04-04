@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"github.com/tnqbao/gau_user_service/api/user"
-	"github.com/tnqbao/gau_user_service/providers"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/user"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/providers"
 	"log"
 	"net/http"
 

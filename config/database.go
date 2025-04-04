@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/tnqbao/gau_user_service/models"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

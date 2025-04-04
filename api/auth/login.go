@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"github.com/tnqbao/gau_user_service/providers"
+	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/providers"
 	"log"
 	"net/http"
 	"os"

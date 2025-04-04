@@ -1,4 +1,4 @@
-module github.com/tnqbao/gau_user_service
+module github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4.git
 
 go 1.23
 
