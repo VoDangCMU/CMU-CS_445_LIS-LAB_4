@@ -1,13 +1,45 @@
-version: '3.8'
+version: '3.9'
 
 services:
   app:
-    image: your-image-name
+    build: .
+    container_name: user_api
     ports:
-      - "8080:80"
-    volumes:
-      - ./app:/usr/src/app
-    environment:
-      - NODE_ENV=production
+      - "8080:8080"
+    depends_on:
+      - db
     networks:
-      - app-network
+      - backend
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "1234567"
+      POSTGRES_DB: "lab_4"
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  pgdata:

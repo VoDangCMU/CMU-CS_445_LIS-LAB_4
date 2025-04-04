@@ -2,8 +2,6 @@ package routes
 
 import (
 	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/auth"
-	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/public"
-	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/api/user"
 	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/middlewares"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -20,29 +18,11 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 	{
 		userRoutes := apiRoutes.Group("/user")
 		{
-			authedRoutes := userRoutes.Group("/")
-			{
-				authedRoutes.Use(middlewares.AuthMiddleware())
-
-				authedRoutes.GET("/:id", user.GetUserById)
-				authedRoutes.GET("/me", user.GetMe)
-
-				authedRoutes.DELETE("/delete", user.DeleteUserById)
-				authedRoutes.PUT("/update", user.UpdateUserInformation)
-			}
-
 			authRotues := userRoutes.Group("/auth")
 			{
 				authRotues.POST("/login", auth.Authentication)
 				authRotues.PUT("/register", auth.Register)
 				authRotues.POST("/logout", auth.Logout, middlewares.AuthMiddleware())
-			}
-
-			publicRoutes := userRoutes.Group("/public")
-			{
-				publicRoutes.GET("/check", public.HealthCheck)
-				publicRoutes.GET("/:id", public.GetPublicUserByID)
-				publicRoutes.POST("/list", public.GetListUserPublicByIDs)
 			}
 		}
 	}

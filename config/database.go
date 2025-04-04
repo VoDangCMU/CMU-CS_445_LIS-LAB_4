@@ -2,26 +2,20 @@ package config
 
 import (
 	"fmt"
-	"log"
-	"os"
-
 	"github.com/VoDangCMU/CMU-CS_445_LIS-LAB_4/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 )
 
 var DB *gorm.DB
 
 func InitDB() *gorm.DB {
 	var err error
-	pg_user := os.Getenv("POSTGRES_USER")
-	pg_password := os.Getenv("POSTGRES_PASSWORD")
-	pg_host := os.Getenv("POSTGRES_HOST")
-	database_name := os.Getenv("POSTGRES_DB")
-
-	if pg_user == "" || pg_password == "" || pg_host == "" || database_name == "" {
-		log.Fatal("One or more required secrets are missing")
-	}
+	pg_user := "postgres"
+	pg_password := "1234567"
+	pg_host := 5432
+	database_name := "lab_4"
 
 	fmt.Printf("DB connect status: %s:%s@tcp(%s:5432)/%s\n", pg_user, pg_password, pg_host, database_name)
 
