@@ -14,7 +14,7 @@ import (
 
 func Authentication(c *gin.Context) {
 	var req providers.ClientRequestLogin
-	jwtKey := os.Getenv("JWT_SECRET")
+	jwtKey := "VODANGSECRET"
 	if err := c.ShouldBindJSON(&req); err != nil {
 		log.Println("UserRequest binding error:", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request format: " + err.Error()})

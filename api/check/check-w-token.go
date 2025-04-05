@@ -5,7 +5,7 @@ import (
 )
 
 func CheckWithToken(c *gin.Context) {
-	user_id := c.MustGet("user_id").(string)
+	user_id := c.MustGet("user_id").(uint)
 	c.JSON(200, gin.H{
 		"status":  200,
 		"message": "Check with token!",

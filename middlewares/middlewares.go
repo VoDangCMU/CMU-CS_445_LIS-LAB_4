@@ -3,8 +3,6 @@ package middlewares
 import (
 	"errors"
 	"net/http"
-	"os"
-	"strings"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -13,10 +11,8 @@ import (
 )
 
 func CORSMiddleware() gin.HandlerFunc {
-	domains := os.Getenv("LIST_DOMAIN")
-	domainList := strings.Split(domains, "^")
 	return cors.New(cors.Config{
-		AllowOrigins:     domainList,
+		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length", "Authorization", "Set-Cookie"},
@@ -68,7 +64,7 @@ func AuthMiddleware() gin.HandlerFunc {
 }
 
 func validateToken(tokenString string) (*jwt.Token, error) {
-	jwtSecret := []byte(os.Getenv("JWT_SECRET"))
+	jwtSecret := []byte("VODANGSECRET")
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, errors.New("unexpected signing method")
